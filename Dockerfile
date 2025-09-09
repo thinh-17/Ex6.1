@@ -1,10 +1,10 @@
-FROM tomcat:9.0-jdk17
+FROM maven:3.9.6-eclipse-temurin-17 AS build
+WORKDIR /app
+COPY . .
+RUN mvn clean package -DskipTests
 
-RUN rm -rf /usr/local/tomcat/webapps/*
+FROM eclipse-temurin:17-jdk
+WORKDIR /app
 
-COPY target/Ex6.1-1.0-SNAPSHOT.war /usr/local/tomcat/webapps/ROOT.war
-
-# Mở cổng 8080
-EXPOSE 8080
-# Chạy Tomcat
+COPY --from=build /app/target/*.war /usr/local/tomcat/webapps/
 CMD ["catalina.sh", "run"]
