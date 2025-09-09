@@ -3,8 +3,9 @@ WORKDIR /app
 COPY . .
 RUN mvn clean package -DskipTests
 
-FROM eclipse-temurin:17-jdk
-WORKDIR /app
+FROM tomcat:9.0-jdk17
+WORKDIR /usr/local/tomcat/webapps/
 
 COPY --from=build /app/target/*.war /usr/local/tomcat/webapps/
+EXPOSE 8080
 CMD ["catalina.sh", "run"]
