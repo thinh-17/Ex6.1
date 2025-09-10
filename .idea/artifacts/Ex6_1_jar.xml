@@ -1,9 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="jar" name="Ex6.1:jar">
-    <output-path>$PROJECT_DIR$/out/artifacts/Ex6_1_jar</output-path>
-    <root id="archive" name="Ex6.1.jar">
-      <element id="module-output" name="Ex6.1" />
-      <element id="extracted-dir" path="$PROJECT_DIR$/../apache-tomcat-9.0.89/lib/servlet-api.jar" path-in-jar="/" />
-    </root>
-  </artifact>
-</component>
